@@ -372,7 +372,7 @@ $HTTP["url"] =~ "\.(jpg|png|css|js)$" {
 }
 
 # Allow only local IP
-$HTTP["remoteip"] != "127.0.0.1|192.168.1.0/24" {
+$HTTP["remoteip"] != "192.168.1.0/24" {
   url.access-deny = ("")
 }
   ```
