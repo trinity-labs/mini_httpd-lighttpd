@@ -239,7 +239,7 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 # see compress.txt
 #
 deflate.cache-dir   = "/etc/lighttpd/cache/acf"
-deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/javascript")
+deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
 deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
 # }}}
 
@@ -343,7 +343,15 @@ deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" 
 #
 # set Content-Encoding and reset Content-Type for browsers that
 # support decompressing on-thy-fly (requires mod_setenv)
-#
+ $HTTP["url"] =~ "\.gz$" {
+     setenv.add-response-header = ("Content-Encoding" => "x-gzip")
+     mimetype.assign = (".gz" => "text/plain")
+ }
+
+ $HTTP["url"] =~ "\.bz2$" {
+     setenv.add-response-header = ("Content-Encoding" => "x-bzip2")
+     mimetype.assign = (".bz2" => "text/plain")
+ }
 # }}}
 
 # {{{ debug
