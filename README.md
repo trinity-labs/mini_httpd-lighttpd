@@ -239,7 +239,7 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 # see compress.txt
 #
 deflate.cache-dir   = "/etc/lighttpd/cache/acf"
-deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml")
+deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/javascript")
 deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
 # }}}
 
