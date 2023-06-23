@@ -1,7 +1,8 @@
 <div align="center">
 <img src="https://github.com/trinity-labs/trinity-skin/assets/45216746/29ad720a-2497-4b1a-94f8-0791b6f3e560" width="20%">
 </div>
-
+<br>
+<br>
 <h2>
 
 Run Alpine Linux ACF on Lighttpd
@@ -62,7 +63,7 @@ Light-weight, fast and highly customizable server - Perfect for a strong `ACF` b
  Edit `/etc/lighttpd/lighttpd.conf` and replace with all these line
  
  ```css
-  ###############################################################################
+###############################################################################
 # Default lighttpd.conf for Gentoo.
 # $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/files/conf/lighttpd.conf,v 1.3 2005/09/01 14:22:35 ka0ttic Exp $
 ###############################################################################
@@ -86,12 +87,12 @@ server.modules = (
 #	 "mod_dirlisting",
 #    "mod_auth",
 #    "mod_status",
-#    "mod_setenv",
+	 "mod_setenv",
 #    "mod_proxy",
 #    "mod_simple_vhost",
 #    "mod_evhost",
 #    "mod_userdir",
-#    "mod_deflate",
+     "mod_deflate",
 #    "mod_ssi",
      "mod_expire",
 #    "mod_rrdtool",
@@ -237,8 +238,9 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 # {{{ mod_deflate
 # see compress.txt
 #
-# deflate.cache-dir   = var.statedir + "/cache/compress"
-# deflate.mimetypes   = ("text/plain", "text/html")
+deflate.cache-dir   = "/etc/lighttpd/cache/acf"
+deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml")
+deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
 # }}}
 
 # {{{ mod_proxy
@@ -341,15 +343,6 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 #
 # set Content-Encoding and reset Content-Type for browsers that
 # support decompressing on-thy-fly (requires mod_setenv)
-# $HTTP["url"] =~ "\.gz$" {
-#     setenv.add-response-header = ("Content-Encoding" => "x-gzip")
-#     mimetype.assign = (".gz" => "text/plain")
-# }
-
-# $HTTP["url"] =~ "\.bz2$" {
-#     setenv.add-response-header = ("Content-Encoding" => "x-bzip2")
-#     mimetype.assign = (".bz2" => "text/plain")
-# }
 #
 # }}}
 
@@ -367,7 +360,7 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 ########################################
 
 # Cache based on suffix
-$HTTP["url"] =~ "\.(jpg|png|css|js)$" {
+$HTTP["url"] =~ "\.(jpg|png|css|js|html)$" {
      expire.url = ( "" => "access plus 1 years" )
 }
 
@@ -403,8 +396,23 @@ cgi.assign = ( "" => "" )
   $: rc-service lighttpd start && rc-update add lighttpd
   ```
   
- Optionaly remove `mini_httpd`
+<h2>
+Options
+</h2>
+
+
+- Remove `mini_httpd` for ever
  
-   ```css
-  $: apk del mini_httpd
+```css
+ $: apk del mini_httpd
+```
+  
+- Enable `cache` and `Bzip2` / `Gzip` compression
+
+ ```css
+  $: cd /etc/lighttpd && mkdir -p cache/acf
+  $: chown -R lighttpd:lighttpd /etc/lighttpd/cache/
+  $: chmod 700 -R cache/
   ```
+  Refresh browser and see `var` folder in `acf` 
+
