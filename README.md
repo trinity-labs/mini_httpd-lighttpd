@@ -423,4 +423,14 @@ Options
   $: chmod 700 -R cache/
   ```
   Refresh browser and see `var` folder in `acf` 
+  
+- Filter local IP only (only activate in our custom lighttpd.conf)
+
+ ```css
+# Allow only local IP
+$HTTP["remoteip"] != "192.168.1.0/24" {
+url.access-deny = ("")
+}
+  ```
+
 
