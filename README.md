@@ -424,7 +424,7 @@ cgi.assign = ( "" => "" )
   $: chown -R lighttpd:lighttpd /etc/lighttpd/cache/
   $: chmod 700 -R cache/
   ```
-  Uncomment & mkdir `/etc/lighttpd/cache/acf` 
+  Uncomment following line in `/etc/lighttpd/lighttpd.conf` & mkdir `/etc/lighttpd/cache/acf` 
   
   ```bash
 	deflate.cache-dir   = "/etc/lighttpd/cache/acf"
