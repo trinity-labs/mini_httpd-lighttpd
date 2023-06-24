@@ -5,7 +5,7 @@
 <br>
 <h2>
 
-Run Alpine Linux ACF on Lighttpd
+**Run Alpine Linux ACF on Lighttpd**
 
  </h2>
  
@@ -15,7 +15,7 @@ Light-weight, fast and highly customizable server - Perfect for a strong `ACF` b
 
 <h2> 
 
-[Lighttpd Features](https://en.wikipedia.org/wiki/Lighttpd#Features)
+**[Lighttpd Features](https://en.wikipedia.org/wiki/Lighttpd#Features)**
 
 </h2> 
 
@@ -42,7 +42,7 @@ Light-weight, fast and highly customizable server - Perfect for a strong `ACF` b
  
  <h2>
 
- Install & Config
+ **Install & Config**
 
  </h2>
  
@@ -364,7 +364,7 @@ deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" 
 # vim: set ft=conf foldmethod=marker et :
 
 ########################################
-#			CUSTOM CONFIG			   #
+#			CUSTOM CONFIG			   
 ########################################
 
 # Cache based on suffix
@@ -381,7 +381,7 @@ $HTTP["remoteip"] != "192.168.1.0/24" {
  Enable CGI script module and replace this line in `/etc/lighttpd/mod_cgi.conf`
   
   ```bash
- ###############################################################################
+###############################################################################
 # mod_cgi.conf
 # include'd by lighttpd.conf.
 # $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/files/conf/mod_cgi.conf,v 1.1 2005/08/27 12:36:13 ka0ttic Exp $
@@ -405,7 +405,7 @@ cgi.assign = ( "" => "" )
   ```
   
 <h2>
-Options
+**Options**
 </h2>
 
 
@@ -424,7 +424,7 @@ Options
   ```
   Refresh browser and see `var` folder in `acf` 
   
-- Filter local IP only (only activate in our custom lighttpd.conf)
+- Filter local IP only (already define in our custom lighttpd.conf)
 
  ```bash
 # Allow only local IP
