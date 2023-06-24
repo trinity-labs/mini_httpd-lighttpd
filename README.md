@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/trinity-labs/trinity-skin/assets/45216746/29ad720a-2497-4b1a-94f8-0791b6f3e560" width="20%">
+<img src="https://github.com/trinity-labs/trinity-skin/assets/45216746/9a759ca2-6133-4325-ae2d-0f90a443ec98" width="40%">
 </div>
 <br>
 <br>
