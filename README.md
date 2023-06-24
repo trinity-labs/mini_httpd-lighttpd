@@ -50,19 +50,19 @@ Light-weight, fast and highly customizable server - Perfect for a strong `ACF` b
  
  Install `lighttpd`
  
- ```css
+ ```bash
   $: apk add lighttpd
   ```
   
  Stop `mini_httpd` (take off your ACF runtimes before stop it)
  
- ```css
+ ```bash
   $: rc-service mini_httpd stop
   ```
   
  Edit `/etc/lighttpd/lighttpd.conf` and replace with all these line
  
- ```css
+ ```bash
 ###############################################################################
 # Default lighttpd.conf for Gentoo.
 # $Header: /var/cvsroot/gentoo-x86/www-servers/lighttpd/files/conf/lighttpd.conf,v 1.3 2005/09/01 14:22:35 ka0ttic Exp $
@@ -380,7 +380,7 @@ $HTTP["remoteip"] != "192.168.1.0/24" {
   
  Enable CGI script module and replace this line in `/etc/lighttpd/mod_cgi.conf`
   
-  ```css
+  ```bash
  ###############################################################################
 # mod_cgi.conf
 # include'd by lighttpd.conf.
@@ -400,7 +400,7 @@ cgi.assign = ( "" => "" )
  ```
  Start `lighttpd` server and check everything work 
  
-  ```css
+  ```bash
   $: rc-service lighttpd start && rc-update add lighttpd
   ```
   
@@ -411,13 +411,13 @@ Options
 
 - Remove `mini_httpd` for ever
  
-```css
+```bash
  $: apk del mini_httpd
 ```
   
 - Enable `cache` and `Bzip2` / `Gzip` compression
 
- ```css
+ ```bash
   $: cd /etc/lighttpd && mkdir -p cache/acf
   $: chown -R lighttpd:lighttpd /etc/lighttpd/cache/
   $: chmod 700 -R cache/
@@ -426,7 +426,7 @@ Options
   
 - Filter local IP only (only activate in our custom lighttpd.conf)
 
- ```css
+ ```bash
 # Allow only local IP
 $HTTP["remoteip"] != "192.168.1.0/24" {
 url.access-deny = ("")
