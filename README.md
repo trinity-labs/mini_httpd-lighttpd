@@ -417,7 +417,7 @@ cgi.assign = ( "" => "" )
  $: apk del mini_httpd
 ```
   
-- Enable `cache` and `bzip2` / `Gzip` compression
+- Enable `cache` and `bzip2` / `gzip` compression
 
  ```bash
   $: cd /etc/lighttpd && mkdir -p cache/acf
