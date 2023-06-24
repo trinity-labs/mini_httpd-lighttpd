@@ -424,6 +424,15 @@ cgi.assign = ( "" => "" )
   $: chown -R lighttpd:lighttpd /etc/lighttpd/cache/
   $: chmod 700 -R cache/
   ```
+  Uncomment & mkdir `/etc/lighttpd/cache/acf` 
+  
+  ```bash
+	deflate.cache-dir   = "/etc/lighttpd/cache/acf"
+	deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
+	deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
+  ```
+  Restart lighttpd 
+  
   Refresh browser and see `var` folder in `/etc/lighttpd/cache/acf` 
   
 - Filter local IP only (already define in our custom lighttpd.conf)
