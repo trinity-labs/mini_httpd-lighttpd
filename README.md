@@ -238,7 +238,7 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 # {{{ mod_deflate
 # see compress.txt
 #
-deflate.cache-dir   = "/etc/lighttpd/cache/acf"
+#deflate.cache-dir   = "/etc/lighttpd/cache/acf"
 deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
 deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
 # }}}
@@ -424,7 +424,7 @@ cgi.assign = ( "" => "" )
   $: chown -R lighttpd:lighttpd /etc/lighttpd/cache/
   $: chmod 700 -R cache/
   ```
-  Refresh browser and see `var` folder in `acf` 
+  Refresh browser and see `var` folder in `/etc/lighttpd/cache/acf` 
   
 - Filter local IP only (already define in our custom lighttpd.conf)
 
