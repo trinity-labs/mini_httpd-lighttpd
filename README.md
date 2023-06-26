@@ -414,7 +414,7 @@ cgi.assign = ( "" => "" )
 - Remove `mini_httpd` for ever
  
 ```bash
- $: apk del mini_httpd
+ $: apk del mini_httpd && rc-update del mini_httpd
 ```
   
 - Enable `cache` and `bzip2` / `gzip` compression
@@ -431,7 +431,8 @@ cgi.assign = ( "" => "" )
 	deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
 	deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
   ```
-  Restart lighttpd 
+  
+ > ⚠️ **Restart lighttpd** 
   
   Refresh browser and see `var` folder in `/etc/lighttpd/cache/acf` 
   
