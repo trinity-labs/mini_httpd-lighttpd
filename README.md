@@ -239,7 +239,33 @@ ssl.pemfile   = "/etc/lighttpd/ssl/server.pem"
 # see compress.txt
 #
 #deflate.cache-dir   = "/etc/lighttpd/cache/acf"
-deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
+deflate.mimetypes = deflate.mimetypes = 
+("text/html,
+text/css,
+text/plain,
+text/xml,
+text/x-component,
+text/javascript,
+application/x-javascript,
+application/javascript,
+application/json,
+application/manifest+json,
+application/vnd.api+json,
+application/xml,
+application/xhtml+xml,
+application/rss+xml,
+application/atom+xml,
+application/vnd.ms-fontobject,
+application/x-font-ttf,
+application/x-font-opentype,
+application/x-font-truetype,
+image/svg+xml,
+image/x-icon,
+image/vnd.microsoft.icon,
+font/ttf,
+font/eot,
+font/otf,
+font/opentype")
 deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
 # }}}
 
@@ -428,7 +454,33 @@ cgi.assign = ( "" => "" )
   
   ```bash
 	deflate.cache-dir   = "/etc/lighttpd/cache/acf"
-	deflate.mimetypes = ("text/html", "text/plain", "text/css", "text/xml", "text/javascript", "application/css")
+	deflate.mimetypes = deflate.mimetypes = 
+("text/html,
+text/css,
+text/plain,
+text/xml,
+text/x-component,
+text/javascript,
+application/x-javascript,
+application/javascript,
+application/json,
+application/manifest+json,
+application/vnd.api+json,
+application/xml,
+application/xhtml+xml,
+application/rss+xml,
+application/atom+xml,
+application/vnd.ms-fontobject,
+application/x-font-ttf,
+application/x-font-opentype,
+application/x-font-truetype,
+image/svg+xml,
+image/x-icon,
+image/vnd.microsoft.icon,
+font/ttf,
+font/eot,
+font/otf,
+font/opentype")
 	deflate.allowed-encodings = ( "bzip2", "gzip", "deflate" ) # "bzip2" and "zstd" also supported
   ```
   
